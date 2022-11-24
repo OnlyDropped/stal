@@ -1,5 +1,56 @@
-*{
-  font-family: 'Inter', sans-serif;
+* {
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-style: normal;
+  color: #000;
+}
+
+.container {
+  max-width: 1690px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.link {
+  padding: 21px 35px;
+  background: #fff101;
+  @extend %circe-700;
+  font-size: 20px;
+  line-height: 130%;
+  color: #000;
+  display: inline-block;
+  margin: 0;
+}
+
+.title {
+  @extend %circe-700;
+  font-size: 30px;
+  line-height: 130%;
+  color: #000;
+  padding-left: 33px;
+  margin-bottom: 75px;
+  position: relative;
+  &::before {
+    position: absolute;
+    content: "";
+    background: #fff101;
+    width: 14px;
+    height: 69px;
+    left: 0;
+    top: 0;
+  }
 }
