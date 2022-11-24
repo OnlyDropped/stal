@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+@import "vars";
+@import "reset";
+@import "global";
+.index {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(0deg, rgba(221, 6, 238, 1) 0%, rgba(24, 92, 237, 1) 100%);
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 100vh;
+  }
+  a {
+    // font-size: 34px;
+    color: #fff;
+    text-align: center;
+    font-size: calc(22px + 12 * (100vw / 1400));
+    transition: 0.4s ease-out;
+    &:hover {
+      color: purple;
+    }
+  }
+}
+@media (max-width: 767px) {
+  .index {
+    a {
+      font-size: calc(22px + (12 + 12 * 0.7) * ((100vw - 320px) / 1400));
+    }
+  }
+}
+
+@import "media";
