@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"
+      type="text/javascript"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <nav class="header-nav">
+          <a class="header-nav__logo" href="">
+            <img src="img/icons/logo.png" alt="логотип" />
+          </a>
+          <ul class="header-nav__menu">
+            <div class="header-nav__item">
+              <a class="header-nav__link" href="">Главная</a>
+            </div>
+            <div class="header-nav__item">
+              <a class="header-nav__link" href="">О нас</a>
+            </div>
+            <div class="header-nav__item">
+              <a class="header-nav__link" href="">Сертификаты</a>
+            </div>
+            <div class="header-nav__item">
+              <a class="header-nav__link" href="">Видео</a>
+            </div>
+            <div class="header-nav__item">
+              <a class="header-nav__link" href="">Контакты</a>
+            </div>
+            <div class="header-nav__item">
+              <a class="header-nav__link" href="">Продукты</a>
+            </div>
+          </ul>
+          <a class="header-nav__phone" href="tel:+78000000000"
+            >8 800 000 00 00</a
+          >
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+      <section class="contacts">
+        <div class="container">
+          <div class="contacts__content">
+            <div class="contacts__info">
+              <p class="contacts__title title">Контакты</p>
+              <div class="contacts__item">
+                <p class="contacts__subtitle">Телефоны</p>
+                <a class="contacts__phone" href="tel:+88000000000"
+                  >8 800 000 00 00</a
+                >
+                <a class="contacts__phone" href="tel:+78000000000"
+                  >8 800 000 00 00</a
+                >
+              </div>
+              <div class="contacts__item">
+                <p class="contacts__subtitle">Электронная почта</p>
+                <a class="contacts__email" href="mailto:mail@mail.ru"
+                  >mail@mail.ru</a
+                >
+              </div>
+              <div class="contacts__item">
+                <p class="contacts__subtitle">Адрес</p>
+                <p class="contacts__address">Маями Бич, 34 04, Вест поинт</p>
+              </div>
+            </div>
+            <div class="contacts__map">
+              <div id="map" style="width: 100%; height: 458px"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <p class="footer__copyright">
+            © «2003 Все права защищены «SANDVIK COROMANT»
+          </p>
+          <ul class="footer__list">
+            <li class="footer__item">
+              <div class="footer__images">
+                <img src="img/icons/telegram.svg" alt="телеграм" />
+              </div>
+            </li>
+            <li class="footer__item">
+              <div class="footer__images">
+                <img src="img/icons/whatsup.svg" alt="ватсап" />
+              </div>
+            </li>
+            <li class="footer__item">
+              <div class="footer__images">
+                <img src="img/icons/mail.svg" alt="электронная почта" />
+              </div>
+              <a class="footer__email" href="mailto:info@carbide.tools"
+                >info@carbide.tools</a
+              >
+            </li>
+            <li class="footer__item">
+              <div class="footer__images">
+                <img src="img/icons/phone.svg" alt="телефон" />
+              </div>
+              <a class="footer__phone" href="tel:+74999922989"
+                >+7 (499) 992-29-89</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script>
+    // Функция ymaps.ready() будет вызвана, когда
+    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+    ymaps.ready(init);
+
+    function init() {
+        // Создание карты.
+        // https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/map-docpage/
+        var myMap = new ymaps.Map("map", {
+            // Координаты центра карты.
+            // Порядок по умолчнию: «широта, долгота».
+            center: [43.589815,39.742384],
+            // Уровень масштабирования. Допустимые значения:
+            // от 0 (весь мир) до 19.
+            zoom: 16,
+            // Элементы управления
+            // https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/controls/standard-docpage/
+            controls: [
+
+                'zoomControl', // Ползунок масштаба
+                'rulerControl', // Линейка
+                //'routeButtonControl', // Панель маршрутизации
+                //'trafficControl', // Пробки
+                //'typeSelector', // Переключатель слоев карты
+                'fullscreenControl', // Полноэкранный режим
+
+                // Поисковая строка
+                /*new ymaps.control.SearchControl({
+                    options: {
+                        // вид - поисковая строка
+                        size: 'large',
+                        // Включим возможность искать не только топонимы, но и организации.
+                        provider: 'yandex#search'
+                    }
+                })*/
+
+            ]
+        });
+
+        // Добавление метки
+        // https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Placemark-docpage/
+        var myPlacemark = new ymaps.Placemark([43.589820,39.742390], {
+            // Хинт показывается при наведении мышкой на иконку метки.
+            hintContent: 'Всплывающая подсказка на Yandex карте <a href="https://problesk.com" target="_blank" >Ссылка </a>',
+            // Балун откроется при клике по метке.
+            balloonContent: 'Содержимое балуна, появляющееся при клике на него <a href="https://problesk.com" target="_blank" >Ссылка </a>'
+        });
+
+        // После того как метка была создана, добавляем её на карту.
+        myMap.geoObjects.add(myPlacemark);
+
+    }
+//   ymaps.ready(init);
+// function init() {
+
+//    var myMap = new ymaps.Map("map", {
+//         center: [43.589815,39.742374],
+//         zoom: 14,
+//     });
+
+//     // Все виды меток
+//     // https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/option.presetStorage-docpage/
+
+//     // Метка без содержимого с точкой в центре
+//     var placemark1 = new ymaps.Placemark([43.589815,39.742364], {
+//         hintContent: 'Метка 1',
+//     }, {
+//         'preset': 'islands#nightDotIcon'
+//     });
+
+//     myMap.geoObjects.add(placemark1);
+
+//     // Метка в виде круга с точкой в центре
+//     var placemark2 = new ymaps.Placemark([43.589820,39.742384], {
+//         hintContent: 'Метка 2',
+//     }, {
+//         'preset': 'islands#greenCircleDotIcon'
+//     });
+
+//     myMap.geoObjects.add(placemark2);
+
+//     // Метка с текстом
+//     var placemark3 = new ymaps.Placemark([43.589819,39.742384], {
+//         hintContent: 'Метка 3',
+//         iconContent: 'Метка 3'
+//     }, {
+//         'preset': 'islands#yellowStretchyIcon'
+//     });
+
+//     myMap.geoObjects.add(placemark3);
+
+//     // Собственное изображение для метки с контентом
+//     var placemark4 = new ymaps.Placemark([43.589815,39.742394], {
+//         hintContent: 'Собственный значок метки с контентом',
+//     }, {
+//         // Опции.
+
+//         // Необходимо указать данный тип макета.
+//         iconLayout: 'default#image',
+
+//         // Своё изображение иконки метки.
+//         iconImageHref: 'https://problesk.com/wp-content/themes/problesk/images/logotip.png',
+//         // Размеры метки.
+//         iconImageSize: [144, 32],
+//         // Смещение левого верхнего угла иконки относительно
+//         // её "ножки" (точки привязки).
+//         iconImageOffset: [-16, -16],
+//     });
+
+//     myMap.geoObjects.add(placemark4);
+// }
+    </script>
+  </body>
+</html>

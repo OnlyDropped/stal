@@ -44,6 +44,7 @@ body {
   padding-left: 33px;
   margin-bottom: 75px;
   position: relative;
+  padding-top: 15px;
   &::before {
     position: absolute;
     content: "";
@@ -53,4 +54,28 @@ body {
     left: 0;
     top: 0;
   }
+}
+
+input:not([type="file"]),
+textarea {
+  max-width: 100%;
+  width: 100%;
+  padding: 19px 22px;
+  background: #fff;
+  border: 1px solid rgba(#000, 0.08);
+  resize: none;
+  &::placeholder {
+    @extend %circe-400;
+    font-size: 20px;
+    line-height: 130%;
+    color: rgba(#000, 0.44);
+  }
+}
+
+.text {
+  max-width: 840px;
+  @extend %inter-300;
+  font-size: 20px;
+  line-height: 188.5%;
+  margin-bottom: 50px;
 }
