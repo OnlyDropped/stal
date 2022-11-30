@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"
-      type="text/javascript"
-    ></script>
+    <script src="https://api-maps.yandex.ru/2.1/?e8a1554a-14e4-465d-bab0-7795d484e6d5&lang=ru_RU&onload=init" type="text/javascript"></script>
     <link rel="stylesheet" href="css/style.css" />
     <title>Document</title>
   </head>
@@ -114,117 +111,6 @@
         </div>
       </div>
     </footer>
-    <script>
-    // Функция ymaps.ready() будет вызвана, когда
-    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
-    ymaps.ready(init);
-
-    function init() {
-        // Создание карты.
-        // https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/map-docpage/
-        var myMap = new ymaps.Map("map", {
-            // Координаты центра карты.
-            // Порядок по умолчнию: «широта, долгота».
-            center: [43.589815,39.742384],
-            // Уровень масштабирования. Допустимые значения:
-            // от 0 (весь мир) до 19.
-            zoom: 16,
-            // Элементы управления
-            // https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/controls/standard-docpage/
-            controls: [
-
-                'zoomControl', // Ползунок масштаба
-                'rulerControl', // Линейка
-                //'routeButtonControl', // Панель маршрутизации
-                //'trafficControl', // Пробки
-                //'typeSelector', // Переключатель слоев карты
-                'fullscreenControl', // Полноэкранный режим
-
-                // Поисковая строка
-                /*new ymaps.control.SearchControl({
-                    options: {
-                        // вид - поисковая строка
-                        size: 'large',
-                        // Включим возможность искать не только топонимы, но и организации.
-                        provider: 'yandex#search'
-                    }
-                })*/
-
-            ]
-        });
-
-        // Добавление метки
-        // https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Placemark-docpage/
-        var myPlacemark = new ymaps.Placemark([43.589820,39.742390], {
-            // Хинт показывается при наведении мышкой на иконку метки.
-            hintContent: 'Всплывающая подсказка на Yandex карте <a href="https://problesk.com" target="_blank" >Ссылка </a>',
-            // Балун откроется при клике по метке.
-            balloonContent: 'Содержимое балуна, появляющееся при клике на него <a href="https://problesk.com" target="_blank" >Ссылка </a>'
-        });
-
-        // После того как метка была создана, добавляем её на карту.
-        myMap.geoObjects.add(myPlacemark);
-
-    }
-//   ymaps.ready(init);
-// function init() {
-
-//    var myMap = new ymaps.Map("map", {
-//         center: [43.589815,39.742374],
-//         zoom: 14,
-//     });
-
-//     // Все виды меток
-//     // https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/option.presetStorage-docpage/
-
-//     // Метка без содержимого с точкой в центре
-//     var placemark1 = new ymaps.Placemark([43.589815,39.742364], {
-//         hintContent: 'Метка 1',
-//     }, {
-//         'preset': 'islands#nightDotIcon'
-//     });
-
-//     myMap.geoObjects.add(placemark1);
-
-//     // Метка в виде круга с точкой в центре
-//     var placemark2 = new ymaps.Placemark([43.589820,39.742384], {
-//         hintContent: 'Метка 2',
-//     }, {
-//         'preset': 'islands#greenCircleDotIcon'
-//     });
-
-//     myMap.geoObjects.add(placemark2);
-
-//     // Метка с текстом
-//     var placemark3 = new ymaps.Placemark([43.589819,39.742384], {
-//         hintContent: 'Метка 3',
-//         iconContent: 'Метка 3'
-//     }, {
-//         'preset': 'islands#yellowStretchyIcon'
-//     });
-
-//     myMap.geoObjects.add(placemark3);
-
-//     // Собственное изображение для метки с контентом
-//     var placemark4 = new ymaps.Placemark([43.589815,39.742394], {
-//         hintContent: 'Собственный значок метки с контентом',
-//     }, {
-//         // Опции.
-
-//         // Необходимо указать данный тип макета.
-//         iconLayout: 'default#image',
-
-//         // Своё изображение иконки метки.
-//         iconImageHref: 'https://problesk.com/wp-content/themes/problesk/images/logotip.png',
-//         // Размеры метки.
-//         iconImageSize: [144, 32],
-//         // Смещение левого верхнего угла иконки относительно
-//         // её "ножки" (точки привязки).
-//         iconImageOffset: [-16, -16],
-//     });
-
-//     myMap.geoObjects.add(placemark4);
-// }
-    </script>
+    <script src="js/app.js"></script> 
   </body>
 </html>

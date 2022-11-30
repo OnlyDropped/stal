@@ -33,9 +33,9 @@
     }
   }
 }
-// .header {
-//   background: rgba(24, 92, 237, 0.2);
-// }
+.header {
+  background: rgba(24, 92, 237, 0.2);
+}
 .header-nav {
   display: flex;
   align-items: center;
@@ -44,11 +44,18 @@
   &__logo {
     position: absolute;
     top: 0;
+    z-index: 1;
+  }
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 188px;
+    width: 100%;
   }
   &__menu {
     display: flex;
     align-items: center;
-    margin-left: 188px;
     gap: 0 90px;
   }
   &__link {
@@ -59,6 +66,54 @@
     @extend %inter-700;
     font-size: 24px;
     line-height: 188.5%;
+  }
+  &__btn {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    position: relative;
+    margin-left: auto;
+    display: none;
+  }
+  &__btn span,
+  &__btn span::after,
+  &__btn span::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* transform: translateY(-50%); */
+    margin-top: -1px;
+    margin-left: -10px;
+    width: 20px;
+    height: 2px;
+    background: #222;
+  }
+
+  &__btn span::after,
+  &__btn span::before {
+    content: "";
+    display: block;
+    transition: 1s;
+  }
+
+  &__btn span::before {
+    transform: translateY(-5px);
+  }
+
+  &__btn span::after {
+    transform: translateY(5px);
+  }
+  &__btn__active span::before {
+    transform: rotate(-35deg);
+    width: 10px;
+    transform-origin: left bottom;
+  }
+
+  &__btn__active span::after {
+    transform: rotate(35deg);
+    width: 10px;
+    transform-origin: left top;
   }
 }
 .banner {
@@ -452,7 +507,7 @@
   }
 }
 .footer {
-  // background: rgba(24, 92, 237, 0.2);
+  background: rgba(#000, 0.2);
   padding: 58px 0 64px;
   &__inner {
     display: flex;
@@ -488,4 +543,5 @@
     background: #fff101;
   }
 }
-@import "media";
+
+@import "header";

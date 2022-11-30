@@ -15,19 +15,25 @@
         <a class="header-nav__logo" href="">
           <img src="img/icons/logo.png" alt="логотип">
         </a>
-        <ul class="header-nav__menu">
-          <div class="header-nav__item"><a class="header-nav__link" href="">Главная</a></div>
-          <div class="header-nav__item"><a class="header-nav__link" href="">О нас</a></div>
-          <div class="header-nav__item"><a class="header-nav__link" href="">Сертификаты</a></div>
-          <div class="header-nav__item"><a class="header-nav__link" href="">Видео</a></div>
-          <div class="header-nav__item"><a class="header-nav__link" href="">Контакты</a></div>
-          <div class="header-nav__item"><a class="header-nav__link" href="">Продукты</a></div>
-        </ul>
-        <a class="header-nav__phone" href="tel:+78000000000">8 800 000 00 00</a>
+        <div class="header-nav__nav">
+          <ul class="header-nav__menu">
+            <div class="header-nav__item"><a class="header-nav__link" href="">Главная</a></div>
+            <div class="header-nav__item"><a class="header-nav__link" href="">О нас</a></div>
+            <div class="header-nav__item"><a class="header-nav__link" href="">Сертификаты</a></div>
+            <div class="header-nav__item"><a class="header-nav__link" href="">Видео</a></div>
+            <div class="header-nav__item"><a class="header-nav__link" href="">Контакты</a></div>
+            <div class="header-nav__item"><a class="header-nav__link" href="">Продукты</a></div>
+          </ul>
+          <a class="header-nav__phone" href="tel:+78000000000">8 800 000 00 00</a>          
+        </div>
+        <a class="header-nav__btn" href="#">
+          <span></span>
+        </a> 
       </nav>
     </div>
   </header>
-  <main class="main">
+
+   <main class="main">
     <section class="banner">
       <div class="container">
         <h1 class="banner__title">Найдите свой способ как получить преимущества при точении стали</h1>
@@ -164,9 +170,12 @@
         </ul>
       </div>
     </div>
-  </footer>
+  </footer> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jQueryFormStyler/2.0.2/jquery.formstyler.min.js"></script>
   <script src="js/app.js"></script>
+  <script>
+    $('.file').styler();
+  </script>
 </body>
 </html>

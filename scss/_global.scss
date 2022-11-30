@@ -56,21 +56,21 @@ body {
   }
 }
 
-input:not([type="file"]),
-textarea {
-  max-width: 100%;
-  width: 100%;
-  padding: 19px 22px;
-  background: #fff;
-  border: 1px solid rgba(#000, 0.08);
-  resize: none;
-  &::placeholder {
-    @extend %circe-400;
-    font-size: 20px;
-    line-height: 130%;
-    color: rgba(#000, 0.44);
-  }
-}
+// input:not([type="file"]),
+// textarea {
+//   max-width: 100%;
+//   width: 100%;
+//   padding: 19px 22px;
+//   background: #fff;
+//   border: 1px solid rgba(#000, 0.08);
+//   resize: none;
+//   &::placeholder {
+//     @extend %circe-400;
+//     font-size: 20px;
+//     line-height: 130%;
+//     color: rgba(#000, 0.44);
+//   }
+// }
 
 .text {
   max-width: 840px;
